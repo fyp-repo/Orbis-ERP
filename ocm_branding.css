@@ -1,0 +1,399 @@
+/* ==========================================================================
+   OCM / OrbisERP Futuristic Automotive UI Styling
+   Orbis Car Manufacturing (Pvt.) Ltd.
+   ========================================================================== */
+
+:root {
+    --ocm-bg-sidebar: #090E1A;
+    --ocm-bg-sidebar-dark: #050811;
+    --ocm-border-glow: rgba(0, 195, 255, 0.15);
+    --ocm-blue-primary: #00C3FF;
+    --ocm-blue-hover: #38BDF8;
+    --ocm-blue-glow: 0 0 10px rgba(0, 195, 255, 0.55);
+    --ocm-text-primary: #F8FAFC;
+    --ocm-text-secondary: #94A3B8;
+    --ocm-text-muted: #64748B;
+    --ocm-sidebar-width-expanded: 240px;
+    --ocm-sidebar-width-collapsed: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   1. DESK LAYOUT & SMOOTH TRANSITIONS
+   -------------------------------------------------------------------------- */
+body {
+    overflow-x: hidden !important;
+}
+
+.body-sidebar-container {
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+.body-sidebar-placeholder {
+    display: block !important;
+    height: 100vh !important;
+    flex-shrink: 0 !important;
+    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.body-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    background: linear-gradient(180deg, #090E1A 0%, #060912 60%, #03050C 100%) !important;
+    border-right: 1px solid var(--ocm-border-glow) !important;
+    box-shadow: 2px 0 24px rgba(0, 0, 0, 0.55) !important;
+    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 1020 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    padding: 12px 8px !important;
+}
+
+.main-section {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. EXPANDED STATE (FULL SIDEBAR)
+   -------------------------------------------------------------------------- */
+.body-sidebar-container.expanded .body-sidebar-placeholder,
+body.ocm-sidebar-expanded .body-sidebar-placeholder {
+    width: var(--ocm-sidebar-width-expanded) !important;
+}
+
+.body-sidebar-container.expanded .body-sidebar,
+body.ocm-sidebar-expanded .body-sidebar {
+    width: var(--ocm-sidebar-width-expanded) !important;
+}
+
+.body-sidebar-container.expanded + .main-section,
+body.ocm-sidebar-expanded .main-section {
+    width: calc(100vw - var(--ocm-sidebar-width-expanded)) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. COLLAPSED STATE (COMPACT SIDEBAR)
+   -------------------------------------------------------------------------- */
+.body-sidebar-container:not(.expanded) .body-sidebar-placeholder,
+body.ocm-sidebar-collapsed .body-sidebar-placeholder {
+    width: var(--ocm-sidebar-width-collapsed) !important;
+}
+
+.body-sidebar-container:not(.expanded) .body-sidebar,
+body.ocm-sidebar-collapsed .body-sidebar {
+    width: var(--ocm-sidebar-width-collapsed) !important;
+    padding: 12px 6px !important;
+}
+
+.body-sidebar-container:not(.expanded) + .main-section,
+body.ocm-sidebar-collapsed .main-section {
+    width: calc(100vw - var(--ocm-sidebar-width-collapsed)) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. SIDEBAR HEADER, LOGO & TOGGLE CONTROL
+   -------------------------------------------------------------------------- */
+.sidebar-header {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    padding: 8px 8px !important;
+    margin-bottom: 12px !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(0, 195, 255, 0.12) !important;
+    transition: all 0.25s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.sidebar-header:hover {
+    background: rgba(0, 195, 255, 0.08) !important;
+    border-color: rgba(0, 195, 255, 0.35) !important;
+    box-shadow: 0 0 14px rgba(0, 195, 255, 0.2) !important;
+}
+
+.sidebar-header .sidebar-item-icon,
+.sidebar-header .header-logo {
+    background: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 34px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+}
+
+.ocm-sidebar-logo {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: 34px !important;
+    max-height: 34px !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
+    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.65)) !important;
+    transition: transform 0.25s ease, filter 0.25s ease !important;
+    display: block !important;
+}
+
+.sidebar-header:hover .ocm-sidebar-logo {
+    transform: scale(1.06) !important;
+    filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.9)) !important;
+}
+
+.sidebar-header .title-container {
+    margin-left: 10px !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    transition: opacity 0.2s ease, max-width 0.25s ease !important;
+}
+
+.sidebar-header .header-title {
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: #F8FAFC !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.2 !important;
+}
+
+.sidebar-header .header-subtitle {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    color: #00C3FF !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
+    text-shadow: 0 0 8px rgba(0, 195, 255, 0.4) !important;
+}
+
+/* Header Collapse Toggle Button */
+.ocm-header-toggle-btn {
+    flex: 0 0 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 6px !important;
+    color: #94A3B8 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(0, 195, 255, 0.15) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    margin-left: 4px !important;
+}
+
+.ocm-header-toggle-btn:hover {
+    color: #00C3FF !important;
+    background: rgba(0, 195, 255, 0.18) !important;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.35) !important;
+}
+
+.ocm-header-toggle-btn svg {
+    transition: transform 0.28s ease !important;
+}
+
+/* Collapsed Header Layout */
+.body-sidebar-container:not(.expanded) .sidebar-header,
+body.ocm-sidebar-collapsed .sidebar-header {
+    justify-content: center !important;
+    padding: 8px 0 !important;
+    margin-bottom: 14px !important;
+}
+
+.body-sidebar-container:not(.expanded) .sidebar-header .title-container,
+body.ocm-sidebar-collapsed .sidebar-header .title-container,
+.body-sidebar-container:not(.expanded) .sidebar-header .drop-icon,
+body.ocm-sidebar-collapsed .sidebar-header .drop-icon,
+.body-sidebar-container:not(.expanded) .sidebar-header .ocm-header-toggle-btn,
+body.ocm-sidebar-collapsed .sidebar-header .ocm-header-toggle-btn {
+    display: none !important;
+    opacity: 0 !important;
+    max-width: 0 !important;
+    pointer-events: none !important;
+}
+
+.body-sidebar-container:not(.expanded) .sidebar-header .sidebar-item-icon,
+body.ocm-sidebar-collapsed .sidebar-header .sidebar-item-icon {
+    margin: 0 auto !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. NAVIGATION ITEMS (EXPANDED VS COLLAPSED)
+   -------------------------------------------------------------------------- */
+.body-sidebar-top {
+    overflow-x: hidden !important;
+}
+
+.sidebar-items {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+}
+
+.standard-sidebar-item,
+.sidebar-item {
+    margin: 0 !important;
+    border-radius: 6px !important;
+}
+
+.standard-sidebar-item .item-anchor,
+.sidebar-item .item-anchor {
+    display: flex !important;
+    align-items: center !important;
+    padding: 8px 10px !important;
+    border-radius: 6px !important;
+    color: #94A3B8 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    border-left: 3px solid transparent !important;
+}
+
+.standard-sidebar-item .item-anchor:hover,
+.sidebar-item .item-anchor:hover {
+    background: rgba(0, 195, 255, 0.08) !important;
+    color: #F0F9FF !important;
+}
+
+.standard-sidebar-item .item-anchor:hover .sidebar-item-icon svg,
+.standard-sidebar-item .item-anchor:hover .sidebar-item-icon {
+    color: #00C3FF !important;
+    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.65)) !important;
+}
+
+.standard-sidebar-item.selected .item-anchor,
+.sidebar-item.selected .item-anchor,
+.standard-sidebar-item.active .item-anchor {
+    background: rgba(0, 195, 255, 0.13) !important;
+    border-left: 3px solid #00C3FF !important;
+    color: #FFFFFF !important;
+    box-shadow: inset 0 0 14px rgba(0, 195, 255, 0.09) !important;
+}
+
+.standard-sidebar-item.selected .sidebar-item-icon,
+.standard-sidebar-item.selected .sidebar-item-icon svg,
+.standard-sidebar-item.active .sidebar-item-icon {
+    color: #00C3FF !important;
+    filter: drop-shadow(0 0 7px rgba(0, 195, 255, 0.85)) !important;
+}
+
+.sidebar-item-icon {
+    flex: 0 0 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #64748B !important;
+    transition: color 0.2s ease, filter 0.2s ease !important;
+}
+
+.sidebar-item-label {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin-left: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #CBD5E1 !important;
+    transition: opacity 0.2s ease !important;
+}
+
+/* Collapsed Navigation Items: Icons Only */
+.body-sidebar-container:not(.expanded) .standard-sidebar-item .item-anchor,
+body.ocm-sidebar-collapsed .standard-sidebar-item .item-anchor {
+    justify-content: center !important;
+    padding: 10px 0 !important;
+    width: 100% !important;
+}
+
+.body-sidebar-container:not(.expanded) .sidebar-item-label,
+body.ocm-sidebar-collapsed .sidebar-item-label {
+    display: none !important;
+    opacity: 0 !important;
+    max-width: 0 !important;
+    pointer-events: none !important;
+}
+
+.body-sidebar-container:not(.expanded) .sidebar-item-icon,
+body.ocm-sidebar-collapsed .sidebar-item-icon {
+    margin: 0 auto !important;
+}
+
+.body-sidebar-container:not(.expanded) .drop-icon,
+body.ocm-sidebar-collapsed .drop-icon,
+.body-sidebar-container:not(.expanded) .sidebar-item-control,
+body.ocm-sidebar-collapsed .sidebar-item-control {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. BOTTOM CONTROLS & SIDEBAR TOGGLE LINK
+   -------------------------------------------------------------------------- */
+.body-sidebar-bottom {
+    border-top: 1px solid rgba(0, 195, 255, 0.08) !important;
+    padding-top: 10px !important;
+    margin-top: auto !important;
+}
+
+.collapse-sidebar-link.sidebar-toggle-btn {
+    background: rgba(0, 195, 255, 0.05) !important;
+    border: 1px solid rgba(0, 195, 255, 0.15) !important;
+    color: #00C3FF !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 6px !important;
+}
+
+.collapse-sidebar-link.sidebar-toggle-btn:hover {
+    background: rgba(0, 195, 255, 0.16) !important;
+    box-shadow: 0 0 12px rgba(0, 195, 255, 0.35) !important;
+}
+
+.body-sidebar-container:not(.expanded) .avatar-name-email,
+body.ocm-sidebar-collapsed .avatar-name-email,
+.body-sidebar-container:not(.expanded) .onboarding-sidebar span,
+body.ocm-sidebar-collapsed .onboarding-sidebar span,
+.body-sidebar-container:not(.expanded) .promotional-banners,
+body.ocm-sidebar-collapsed .promotional-banners {
+    display: none !important;
+}
+
+.body-sidebar-container:not(.expanded) .sidebar-user-button,
+body.ocm-sidebar-collapsed .sidebar-user-button {
+    justify-content: center !important;
+    padding: 6px 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. NAVBAR & APP BRANDING
+   -------------------------------------------------------------------------- */
+.navbar {
+    background: #090E1A !important;
+    border-bottom: 1px solid rgba(0, 195, 255, 0.12) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.navbar-brand .app-logo,
+.navbar .app-logo {
+    max-height: 28px !important;
+    width: auto !important;
+    border-radius: 50% !important;
+    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.55)) !important;
+}
+
+.navbar-brand .app-title {
+    color: #00C3FF !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+}
