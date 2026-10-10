@@ -1,18 +1,19 @@
 /* ==========================================================================
    OCM / OrbisERP Futuristic Automotive UI Styling
    Orbis Car Manufacturing (Pvt.) Ltd.
+   Clean White Sidebar Theme with Automotive Neon Blue Accents
    ========================================================================== */
 
 :root {
-    --ocm-bg-sidebar: #090E1A;
-    --ocm-bg-sidebar-dark: #050811;
-    --ocm-border-glow: rgba(0, 195, 255, 0.15);
-    --ocm-blue-primary: #00C3FF;
-    --ocm-blue-hover: #38BDF8;
-    --ocm-blue-glow: 0 0 10px rgba(0, 195, 255, 0.55);
-    --ocm-text-primary: #F8FAFC;
-    --ocm-text-secondary: #94A3B8;
-    --ocm-text-muted: #64748B;
+    --ocm-bg-sidebar: #ffffff;
+    --ocm-bg-sidebar-hover: #f1f5f9;
+    --ocm-bg-sidebar-active: #f0f9ff;
+    --ocm-border-sidebar: #e2e8f0;
+    --ocm-blue-primary: #0284c7;
+    --ocm-blue-accent: #00c3ff;
+    --ocm-text-primary: #0f172a;
+    --ocm-text-secondary: #334155;
+    --ocm-text-muted: #64748b;
     --ocm-sidebar-width-expanded: 240px;
     --ocm-sidebar-width-collapsed: 64px;
 }
@@ -33,6 +34,7 @@ body {
     display: block !important;
     height: 100vh !important;
     flex-shrink: 0 !important;
+    background: transparent !important;
     transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -41,9 +43,9 @@ body {
     top: 0 !important;
     left: 0 !important;
     height: 100vh !important;
-    background: linear-gradient(180deg, #090E1A 0%, #060912 60%, #03050C 100%) !important;
-    border-right: 1px solid var(--ocm-border-glow) !important;
-    box-shadow: 2px 0 24px rgba(0, 0, 0, 0.55) !important;
+    background: #ffffff !important;
+    border-right: 1px solid var(--ocm-border-sidebar) !important;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.04) !important;
     transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index: 1020 !important;
     display: flex !important;
@@ -107,8 +109,8 @@ body.ocm-sidebar-collapsed .main-section {
     padding: 8px 8px !important;
     margin-bottom: 12px !important;
     border-radius: 8px !important;
-    background: rgba(255, 255, 255, 0.02) !important;
-    border: 1px solid rgba(0, 195, 255, 0.12) !important;
+    background: #f8fafc !important;
+    border: 1px solid var(--ocm-border-sidebar) !important;
     transition: all 0.25s ease !important;
     position: relative !important;
     overflow: hidden !important;
@@ -116,9 +118,9 @@ body.ocm-sidebar-collapsed .main-section {
 }
 
 .sidebar-header:hover {
-    background: rgba(0, 195, 255, 0.08) !important;
-    border-color: rgba(0, 195, 255, 0.35) !important;
-    box-shadow: 0 0 14px rgba(0, 195, 255, 0.2) !important;
+    background: #f0f9ff !important;
+    border-color: #bae6fd !important;
+    box-shadow: 0 0 10px rgba(2, 132, 199, 0.12) !important;
 }
 
 .sidebar-header .sidebar-item-icon,
@@ -139,14 +141,14 @@ body.ocm-sidebar-collapsed .main-section {
     max-height: 34px !important;
     object-fit: contain !important;
     border-radius: 50% !important;
-    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.65)) !important;
+    filter: drop-shadow(0 0 4px rgba(2, 132, 199, 0.45)) !important;
     transition: transform 0.25s ease, filter 0.25s ease !important;
     display: block !important;
 }
 
 .sidebar-header:hover .ocm-sidebar-logo {
     transform: scale(1.06) !important;
-    filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.9)) !important;
+    filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.7)) !important;
 }
 
 .sidebar-header .title-container {
@@ -160,8 +162,8 @@ body.ocm-sidebar-collapsed .main-section {
 .sidebar-header .header-title {
     font-size: 13.5px !important;
     font-weight: 600 !important;
-    color: #F8FAFC !important;
-    letter-spacing: 0.3px !important;
+    color: var(--ocm-text-primary) !important;
+    letter-spacing: 0.2px !important;
     line-height: 1.2 !important;
 }
 
@@ -169,11 +171,10 @@ body.ocm-sidebar-collapsed .main-section {
     font-size: 10.5px !important;
     font-weight: 700 !important;
     letter-spacing: 2px !important;
-    color: #00C3FF !important;
+    color: var(--ocm-blue-primary) !important;
     text-transform: uppercase !important;
     line-height: 1.2 !important;
     margin-top: 2px !important;
-    text-shadow: 0 0 8px rgba(0, 195, 255, 0.4) !important;
 }
 
 /* Header Collapse Toggle Button */
@@ -184,18 +185,19 @@ body.ocm-sidebar-collapsed .main-section {
     align-items: center !important;
     justify-content: center !important;
     border-radius: 6px !important;
-    color: #94A3B8 !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(0, 195, 255, 0.15) !important;
+    color: var(--ocm-text-muted) !important;
+    background: #ffffff !important;
+    border: 1px solid var(--ocm-border-sidebar) !important;
     transition: all 0.2s ease !important;
     cursor: pointer !important;
     margin-left: 4px !important;
 }
 
 .ocm-header-toggle-btn:hover {
-    color: #00C3FF !important;
-    background: rgba(0, 195, 255, 0.18) !important;
-    box-shadow: 0 0 10px rgba(0, 195, 255, 0.35) !important;
+    color: var(--ocm-blue-primary) !important;
+    background: #e0f2fe !important;
+    border-color: #bae6fd !important;
+    box-shadow: 0 0 8px rgba(2, 132, 199, 0.2) !important;
 }
 
 .ocm-header-toggle-btn svg {
@@ -208,6 +210,8 @@ body.ocm-sidebar-collapsed .sidebar-header {
     justify-content: center !important;
     padding: 8px 0 !important;
     margin-bottom: 14px !important;
+    background: transparent !important;
+    border-color: transparent !important;
 }
 
 .body-sidebar-container:not(.expanded) .sidebar-header .title-container,
@@ -252,7 +256,7 @@ body.ocm-sidebar-collapsed .sidebar-header .sidebar-item-icon {
     align-items: center !important;
     padding: 8px 10px !important;
     border-radius: 6px !important;
-    color: #94A3B8 !important;
+    color: var(--ocm-text-secondary) !important;
     text-decoration: none !important;
     transition: all 0.2s ease !important;
     border-left: 3px solid transparent !important;
@@ -260,30 +264,28 @@ body.ocm-sidebar-collapsed .sidebar-header .sidebar-item-icon {
 
 .standard-sidebar-item .item-anchor:hover,
 .sidebar-item .item-anchor:hover {
-    background: rgba(0, 195, 255, 0.08) !important;
-    color: #F0F9FF !important;
+    background: var(--ocm-bg-sidebar-hover) !important;
+    color: var(--ocm-blue-primary) !important;
 }
 
 .standard-sidebar-item .item-anchor:hover .sidebar-item-icon svg,
 .standard-sidebar-item .item-anchor:hover .sidebar-item-icon {
-    color: #00C3FF !important;
-    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.65)) !important;
+    color: var(--ocm-blue-primary) !important;
 }
 
 .standard-sidebar-item.selected .item-anchor,
 .sidebar-item.selected .item-anchor,
 .standard-sidebar-item.active .item-anchor {
-    background: rgba(0, 195, 255, 0.13) !important;
-    border-left: 3px solid #00C3FF !important;
-    color: #FFFFFF !important;
-    box-shadow: inset 0 0 14px rgba(0, 195, 255, 0.09) !important;
+    background: var(--ocm-bg-sidebar-active) !important;
+    border-left: 3px solid var(--ocm-blue-primary) !important;
+    color: var(--ocm-blue-primary) !important;
+    font-weight: 600 !important;
 }
 
 .standard-sidebar-item.selected .sidebar-item-icon,
 .standard-sidebar-item.selected .sidebar-item-icon svg,
 .standard-sidebar-item.active .sidebar-item-icon {
-    color: #00C3FF !important;
-    filter: drop-shadow(0 0 7px rgba(0, 195, 255, 0.85)) !important;
+    color: var(--ocm-blue-primary) !important;
 }
 
 .sidebar-item-icon {
@@ -291,8 +293,8 @@ body.ocm-sidebar-collapsed .sidebar-header .sidebar-item-icon {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    color: #64748B !important;
-    transition: color 0.2s ease, filter 0.2s ease !important;
+    color: var(--ocm-text-muted) !important;
+    transition: color 0.2s ease !important;
 }
 
 .sidebar-item-label {
@@ -302,7 +304,7 @@ body.ocm-sidebar-collapsed .sidebar-header .sidebar-item-icon {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    color: #CBD5E1 !important;
+    color: inherit !important;
     transition: opacity 0.2s ease !important;
 }
 
@@ -338,15 +340,16 @@ body.ocm-sidebar-collapsed .sidebar-item-control {
    6. BOTTOM CONTROLS & SIDEBAR TOGGLE LINK
    -------------------------------------------------------------------------- */
 .body-sidebar-bottom {
-    border-top: 1px solid rgba(0, 195, 255, 0.08) !important;
+    border-top: 1px solid var(--ocm-border-sidebar) !important;
     padding-top: 10px !important;
     margin-top: auto !important;
+    background: #ffffff !important;
 }
 
 .collapse-sidebar-link.sidebar-toggle-btn {
-    background: rgba(0, 195, 255, 0.05) !important;
-    border: 1px solid rgba(0, 195, 255, 0.15) !important;
-    color: #00C3FF !important;
+    background: #f8fafc !important;
+    border: 1px solid var(--ocm-border-sidebar) !important;
+    color: var(--ocm-blue-primary) !important;
     border-radius: 6px !important;
     transition: all 0.2s ease !important;
     display: flex !important;
@@ -356,8 +359,8 @@ body.ocm-sidebar-collapsed .sidebar-item-control {
 }
 
 .collapse-sidebar-link.sidebar-toggle-btn:hover {
-    background: rgba(0, 195, 255, 0.16) !important;
-    box-shadow: 0 0 12px rgba(0, 195, 255, 0.35) !important;
+    background: #e0f2fe !important;
+    border-color: #bae6fd !important;
 }
 
 .body-sidebar-container:not(.expanded) .avatar-name-email,
@@ -379,9 +382,9 @@ body.ocm-sidebar-collapsed .sidebar-user-button {
    7. NAVBAR & APP BRANDING
    -------------------------------------------------------------------------- */
 .navbar {
-    background: #090E1A !important;
-    border-bottom: 1px solid rgba(0, 195, 255, 0.12) !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--ocm-border-sidebar) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
 .navbar-brand .app-logo,
@@ -389,11 +392,36 @@ body.ocm-sidebar-collapsed .sidebar-user-button {
     max-height: 28px !important;
     width: auto !important;
     border-radius: 50% !important;
-    filter: drop-shadow(0 0 6px rgba(0, 195, 255, 0.55)) !important;
+    filter: drop-shadow(0 0 4px rgba(2, 132, 199, 0.45)) !important;
 }
 
 .navbar-brand .app-title {
-    color: #00C3FF !important;
+    color: var(--ocm-blue-primary) !important;
     font-weight: 700 !important;
     letter-spacing: 1.5px !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. LOADING OVERLAY CSS OVERRIDES (ENSURE PERFECT SCREEN CENTERING)
+   -------------------------------------------------------------------------- */
+.centered.splash,
+.orbis-loader-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    -webkit-transform: none !important;
 }

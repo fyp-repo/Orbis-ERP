@@ -95,7 +95,7 @@
                     toggleSidebar(e);
                     return;
                 }
-            });
+            }, true); // Use capture phase so we intercept before dropdown menu
         }
     }
 
