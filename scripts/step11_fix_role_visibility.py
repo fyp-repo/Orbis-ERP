@@ -477,4 +477,7 @@ def run():
     }
 
 if __name__ == '__main__':
+    frappe.init(site='frontend', sites_path='/home/frappe/frappe-bench/sites')
+    frappe.connect()
     run()
+    frappe.destroy()

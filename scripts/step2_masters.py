@@ -424,3 +424,9 @@ def run():
     frappe.db.commit()
     print('--- Step 2 Finished Successfully! ---')
     return 'Step 2 Complete'
+
+if __name__ == '__main__':
+    frappe.init(site='frontend', sites_path='/home/frappe/frappe-bench/sites')
+    frappe.connect()
+    run()
+    frappe.destroy()

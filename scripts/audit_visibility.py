@@ -50,8 +50,17 @@ def run():
     ]
     
     for email, label in users:
-        frappe.set_user(email)
-        user_roles = frappe.get_roles(email)
+        # Fallback to orbis.test if forw8007 user not in DB
+        resolved_email = email
+        if not frappe.db.exists('User', resolved_email):
+            test_email = label.lower().replace(' ', '.').replace('shop.', '').replace('.1', '').replace('.2', '') + '@orbis.test'
+            if frappe.db.exists('User', test_email):
+                resolved_email = test_email
+            else:
+                print(f'\n  [{label}] User {email} not in DB, skipping.')
+                continue
+        frappe.set_user(resolved_email)
+        user_roles = frappe.get_roles(resolved_email)
         boot = frappe.boot.get_bootinfo()
         
         # Get workspace pages
@@ -62,7 +71,7 @@ def run():
         sidebar = boot.get('workspace_sidebar_item', {})
         sidebar_keys = list(sidebar.keys()) if sidebar else []
         
-        print(f'\n  [{label}] {email}')
+        print(f'\n  [{label}] {resolved_email}')
         print(f'    Roles: {[r for r in user_roles if r not in ["Guest", "All"]]}')
         print(f'    Workspaces visible ({len(ws_names)}): {ws_names}')
         print(f'    Sidebar keys ({len(sidebar_keys)}): {sidebar_keys}')
@@ -105,3 +114,9 @@ def run():
     print('\n' + '=' * 70)
     print('  AUDIT COMPLETE')
     print('=' * 70)
+
+if __name__ == '__main__':
+    frappe.init(site='frontend', sites_path='/home/frappe/frappe-bench/sites')
+    frappe.connect()
+    run()
+    frappe.destroy()

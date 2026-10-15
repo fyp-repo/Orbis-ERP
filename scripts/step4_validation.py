@@ -193,3 +193,9 @@ def run():
         'total_passed': total_passed,
         'results': results
     }
+
+if __name__ == '__main__':
+    frappe.init(site='frontend', sites_path='/home/frappe/frappe-bench/sites')
+    frappe.connect()
+    run()
+    frappe.destroy()

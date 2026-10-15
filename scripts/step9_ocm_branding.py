@@ -554,5 +554,8 @@ def ocm_boot_session(bootinfo):
     return True
 
 if __name__ == "__main__":
+    frappe.init(site="frontend", sites_path="/home/frappe/frappe-bench/sites")
+    frappe.connect()
     success = run_branding_setup()
+    frappe.destroy()
     sys.exit(0 if success else 1)

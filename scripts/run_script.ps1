@@ -7,7 +7,7 @@
 
 param(
     [Parameter(Mandatory=$true)]
-    [ValidateSet("1","2","3","4","5","6","7","8","9","10","11","all")]
+    [ValidateSet("1","2","3","4","5","6","7","8","9","10","11","12","13","14","14b","15","all")]
     [string]$Step
 )
 
@@ -60,13 +60,13 @@ print('RESULT:', result)
 frappe.destroy()
 "@
 
-    docker exec $CONTAINER /home/frappe/frappe-bench/env/bin/python -c $pyCode
+    docker exec -w /home/frappe/frappe-bench/sites $CONTAINER /home/frappe/frappe-bench/env/bin/python -c $pyCode
 
     Write-Host "`n>>> $filename execution finished." -ForegroundColor Green
 }
 
 if ($Step -eq "all") {
-    foreach ($n in @("1","2","3","4","5","6","7","8","9","10")) {
+    foreach ($n in @("1","2","3","4","5","6","7","8","9","10","11","12","13","14","14b","15")) {
         Run-Step $n
     }
 } else {
